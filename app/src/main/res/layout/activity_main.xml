@@ -53,6 +53,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
+        android:visibility="invisible"
         android:src="@drawable/ic_launcher_background"
         android:id="@+id/img"/>
 
@@ -61,6 +62,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/escolha"
         android:text="texto"
+        android:visibility="invisible"
         android:gravity="center"
         android:layout_margin="10dp"
         android:textAllCaps="true"
