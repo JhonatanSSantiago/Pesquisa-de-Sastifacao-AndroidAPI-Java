@@ -2,6 +2,9 @@ package com.jhonssantiago.pesquisa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imagem;
     private TextView escolheTxt;
     private Button button;
+    private int op;
+    private String resposta, cidade;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,20 +55,23 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(getApplicationContext(), ResultActivity.class);
-                String cidade = autoCompleteTextView.getText().toString();
-                it.putExtra("cidade", cidade);
-                Toast.makeText(getApplicationContext(), "cidade: "+cidade, Toast.LENGTH_SHORT).show();
-                startActivity(it);
+                AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+                dialog.setTitle("Avaliação");
+                dialog.setMessage("Olá "+nomeTxt.getText()+"\nCidade: "+autoCompleteTextView.getText() +"\nAvaliação: "+escolheTxt.getText()+"\nEstrelas: "+op);
+                dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                dialog.show();
+
             }
         });
-
-
         estrelas.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                int op = (int) rating;
-                Toast.makeText(MainActivity.this,String.valueOf(rating),Toast.LENGTH_SHORT).show();
+                op = (int) rating;
+              //  Toast.makeText(MainActivity.this,String.valueOf(rating),Toast.LENGTH_SHORT).show();
                 switch (op) {
                     case 1 :
                         imagem.setImageDrawable(getDrawable(R.drawable.triste));
@@ -90,4 +98,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public Context getActivity(){ return this; };
 }
