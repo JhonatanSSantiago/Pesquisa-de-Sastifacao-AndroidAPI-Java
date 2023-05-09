@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">Pesquisa</string>
+    <string-array name="cidades">
+        <item>Palmas</item>
+        <item>Araguaína</item>
+        <item>Gurupi</item>
+        <item>Porto Nacional</item>
+        <item>Paraíso do Tocantins</item>
+        <item>Colinas do Tocantins</item>
+        <item>Araguatins</item>
+        <item>Guaraí</item>
+        <item>Tocantinópolis</item>
+        <item>Dianópolis</item>
+        <item>Augustinópolis</item>
+        <item>Formoso do Araguaia</item>
+        <item>Miracema do Tocantins</item>
+        <item>Taguatinga</item>
+        <item>Pedro Afonso</item>
+        <item>Lagoa da Confusão</item>
+        <item>Miranorte</item>
+        <item>Goiatins</item>
+        <item>São Miguel do Tocantins</item>
+        <item>Nova Olinda</item>
+        <item>Wanderlândia</item>
+        <item>Peixe</item>
+        <item>Xambioá</item>
+        <item>Buriti do Tocantins</item>
+        <item>Esperantina</item>
+        <item>Babaçulândia</item>
+        <item>Arraias</item>
+        <item>Paranã</item>
+        <item>Campos Lindos</item>
+        <item>Axixá do Tocantins</item>
+        <item>Ananás</item>
+        <item>Natividade</item>
+        <item>Sítio Novo do Tocantins</item>
+        <item>Filadélfia</item>
+        <item>Araguaçu</item>
+        <item>Alvorada</item>
+        <item>Praia Norte</item>
+        <item>Colmeia</item>
+        <item>Ponte Alta do Tocantins</item>
+        <item>Monte do Carmo</item>
+    </string-array>
 </resources>

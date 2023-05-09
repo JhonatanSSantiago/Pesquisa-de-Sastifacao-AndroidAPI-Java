@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView escolheTxt;
     private Button button;
     private int op;
-    private String resposta, cidade;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +41,7 @@ public class MainActivity extends AppCompatActivity {
         escolheTxt = findViewById(R.id.escolha);
         button = findViewById(R.id.enviar);
 
-        List<String> cidades = new ArrayList();
-        cidades.add("Miracema do Tocantins");
-        cidades.add("Palmas");
-        cidades.add("Porto Nacional");
-        cidades.add("Paraíso do Tocantins");
-        cidades.add("Lajeado");
-        cidades.add("Araguaína");
+        List<String> cidades = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.cidades)));
 
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,cidades);
         autoCompleteTextView.setAdapter(adapter);
@@ -57,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
                 dialog.setTitle("Avaliação");
-                dialog.setMessage("Olá "+nomeTxt.getText()+"\nCidade: "+autoCompleteTextView.getText() +"\nAvaliação: "+escolheTxt.getText()+"\nEstrelas: "+op);
+                dialog.setMessage("Nome: "+nomeTxt.getText()+"\nCidade: "+autoCompleteTextView.getText() +"\nAvaliação: "+escolheTxt.getText()+" "+op+" Estrelas");
                 dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -71,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 op = (int) rating;
-              //  Toast.makeText(MainActivity.this,String.valueOf(rating),Toast.LENGTH_SHORT).show();
                 switch (op) {
                     case 1 :
                         imagem.setImageDrawable(getDrawable(R.drawable.triste));
